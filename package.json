@@ -1,0 +1,58 @@
+{
+  "name": "dsh-custom-brand-logo",
+  "version": "0.4.0",
+  "description": "Customize the DeepSeek Harness brand: sidebar logo and name, the New Session logo, and the browser tab title and icon.",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "README.zh.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "brand",
+    "logo",
+    "sidebar"
+  ],
+  "license": "MIT",
+  "private": true,
+  "engines": {
+    "dsh": ">=0.2.1-rc.2"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-renderer",
+        "@deepseek-ai/dsh-client-locale"
+      ]
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/livencheng/dsh-custom-logo.git"
+  },
+  "homepage": "https://github.com/livencheng/dsh-custom-logo#readme",
+  "bugs": {
+    "url": "https://github.com/livencheng/dsh-custom-logo/issues"
+  }
+}

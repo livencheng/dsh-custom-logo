@@ -1,0 +1,11 @@
+# dsh-custom-brand-logo bundle patch.
+# The single row mounts both halves declared by this package:
+#   - the Host half (`index.js`) stays inert; it only exists so the bundle has
+#     an installable plugin entry;
+#   - the browser half (`client.js`, declared by `dsh.client` in package.json)
+#     fills `sidebar.brand.mark` and adds the Brand Logo settings page.
+# Users can disable the plugin, or override this row's config, from their
+# profile's own cordis.patch.yml.
+- insert:
+    - id: custom-brand-logo
+      name: 'dsh-custom-brand-logo'

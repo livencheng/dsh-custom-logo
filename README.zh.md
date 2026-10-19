@@ -1,6 +1,9 @@
-# dsh-custom-brand-logo
+# dsh-custom-logo
 
-一个可分享的 DeepSeek Harness（DSH）Web UI 插件：把内置的品牌元素替换成你自己的：
+仓库：<https://github.com/livencheng/dsh-custom-logo> · 包名：`dsh-custom-brand-logo` · 许可证：MIT
+
+一个可分享的 DeepSeek Harness（DSH）Web UI 插件，通过本 GitHub 仓库以
+`dsh-custom-brand-logo` bundle 的形式发布：把内置的品牌元素替换成你自己的：
 
 - **左上角侧边栏**的品牌图标（展开的品牌行和折叠栏都会显示）；
 - **侧边栏品牌名称**——默认显示“DSH本地构建”和构建版本；
@@ -28,13 +31,21 @@
 
 ## 安装
 
-插件是标准 DSH bundle（`dsh.bundle.patch` + `dsh.client`）。安装到某个 profile
+仓库名是 `dsh-custom-logo`，其中的 DSH bundle 包名是 `dsh-custom-brand-logo`。
+插件是标准 DSH bundle（`dsh.bundle.patch` + `dsh.client`），安装到某个 profile
 后按该 profile 的要求重启或刷新 Web UI。
 
-### 从本目录安装（link 本地目录）
+### 从 GitHub 安装（本仓库）
 
 ```sh
-dsh plugin --profile <profile> add /path/to/dsh-custom-brand-logo
+dsh plugin --profile <profile> add github:livencheng/dsh-custom-logo
+```
+
+### 从本地 clone 安装
+
+```sh
+git clone https://github.com/livencheng/dsh-custom-logo.git
+dsh plugin --profile <profile> add ./dsh-custom-logo
 ```
 
 ### 从打包好的 tarball 安装
@@ -42,12 +53,6 @@ dsh plugin --profile <profile> add /path/to/dsh-custom-brand-logo
 ```sh
 pnpm pack                       # 生成 dsh-custom-brand-logo-0.4.0.tgz
 dsh plugin --profile <profile> add ./dsh-custom-brand-logo-0.4.0.tgz
-```
-
-### 从 Git 安装
-
-```sh
-dsh plugin --profile <profile> add github:<you>/dsh-custom-brand-logo
 ```
 
 包内是纯 JavaScript，因此不需要 `prepare`/构建脚本，也不需要放开 pnpm 的
@@ -87,8 +92,9 @@ build-script 权限。
 这是单包 DSH bundle，与 DSH 文档《打包并安装插件》中的结构一致：
 
 ```
-dsh-custom-brand-logo/
-├── package.json          # dsh.bundle.patch + dsh.client（web）+ 展示资源导出
+dsh-custom-logo/            # GitHub 仓库
+├── .gitignore
+├── package.json          # 包名 dsh-custom-brand-logo；dsh.bundle.patch + dsh.client（web）+ 展示资源导出
 ├── cordis.patch.yml      # 插入 `custom-brand-logo` 插件行
 ├── index.js              # Host 端（保持惰性，实际工作都在浏览器端）
 ├── client.js             # 浏览器端：槽位占位组件 + 设置页面
@@ -123,6 +129,12 @@ node --check client.js
 ```
 
 安装后，设置中会出现 **品牌 Logo** 页面；每个槽位的占位组件只在其内容启用时注册。
+
+## 仓库
+
+- 源码与问题反馈：<https://github.com/livencheng/dsh-custom-logo>
+- 英文说明：[README.md](./README.md)
+- 插件通过 Git 分发（未发布到 npm），请使用上面的 `github:` 方式安装。
 
 ## 许可证
 

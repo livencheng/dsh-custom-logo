@@ -1,7 +1,10 @@
-# dsh-custom-brand-logo
+# dsh-custom-logo
 
-A shareable DeepSeek Harness (DSH) Web UI plugin that replaces the built-in brand
-surfaces with your own:
+Repository: <https://github.com/livencheng/dsh-custom-logo> · Package: `dsh-custom-brand-logo` · License: MIT
+
+A shareable DeepSeek Harness (DSH) Web UI plugin, distributed from this GitHub
+repository as the `dsh-custom-brand-logo` bundle, that replaces the built-in
+brand surfaces with your own:
 
 - the brand mark in the **top-left sidebar** (expanded brand row and collapsed rail);
 - the **sidebar brand name** — by default "DSH本地构建" plus the build version;
@@ -32,13 +35,22 @@ the subtitle and each location's visibility are configured.
 
 ## Install
 
-The plugin is a standard DSH bundle (`dsh.bundle.patch` + `dsh.client`). Install
-it into a profile, then restart or refresh the Web UI as your profile requires.
+The repository is named `dsh-custom-logo`; the DSH bundle package inside it is
+`dsh-custom-brand-logo`. The plugin is a standard DSH bundle
+(`dsh.bundle.patch` + `dsh.client`). Install it into a profile, then restart or
+refresh the Web UI as your profile requires.
 
-### From this directory (linked checkout)
+### From GitHub (this repository)
 
 ```sh
-dsh plugin --profile <profile> add /path/to/dsh-custom-brand-logo
+dsh plugin --profile <profile> add github:livencheng/dsh-custom-logo
+```
+
+### From a local clone
+
+```sh
+git clone https://github.com/livencheng/dsh-custom-logo.git
+dsh plugin --profile <profile> add ./dsh-custom-logo
 ```
 
 ### From a packed tarball
@@ -46,12 +58,6 @@ dsh plugin --profile <profile> add /path/to/dsh-custom-brand-logo
 ```sh
 pnpm pack                       # produces dsh-custom-brand-logo-0.4.0.tgz
 dsh plugin --profile <profile> add ./dsh-custom-brand-logo-0.4.0.tgz
-```
-
-### From Git
-
-```sh
-dsh plugin --profile <profile> add github:<you>/dsh-custom-brand-logo
 ```
 
 The package ships plain JavaScript, so no `prepare`/build script (and therefore
@@ -100,8 +106,9 @@ This is a single-package DSH bundle — the structure described in the DSH
 "Package and install a plugin" guide:
 
 ```
-dsh-custom-brand-logo/
-├── package.json          # dsh.bundle.patch + dsh.client (web) + display exports
+dsh-custom-logo/            # GitHub repository
+├── .gitignore
+├── package.json          # package: dsh-custom-brand-logo; dsh.bundle.patch + dsh.client (web) + display exports
 ├── cordis.patch.yml      # inserts the `custom-brand-logo` plugin row
 ├── index.js              # Host half (inert; the browser half does the work)
 ├── client.js             # browser half: slot occupants + settings page
@@ -138,6 +145,13 @@ node --check client.js
 
 After installing, the Settings page appears at **Settings → Brand Logo**, and
 each slot occupant is registered only while its content is enabled.
+
+## Repository
+
+- Source and issues: <https://github.com/livencheng/dsh-custom-logo>
+- Chinese documentation: [README.zh.md](./README.zh.md)
+- The plugin is distributed from Git (it is not published to npm), so install it
+  with the `github:` spec shown above.
 
 ## License
 

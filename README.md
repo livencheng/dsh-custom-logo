@@ -37,27 +37,30 @@ the subtitle and each location's visibility are configured.
 
 The repository is named `dsh-custom-logo`; the DSH bundle package inside it is
 `dsh-custom-brand-logo`. The plugin is a standard DSH bundle
-(`dsh.bundle.patch` + `dsh.client`). Install it into a profile, then restart or
-refresh the Web UI as your profile requires.
+(`dsh.bundle.patch` + `dsh.client`). Install it into the `web` profile, then
+restart or refresh the Web UI as your profile requires.
+
+> The commands below target the `web` profile; replace `web` with another profile
+> name if you install it elsewhere.
 
 ### From GitHub (this repository)
 
 ```sh
-dsh plugin --profile <profile> add github:livencheng/dsh-custom-logo
+dsh plugin --profile web add github:livencheng/dsh-custom-logo
 ```
 
 ### From a local clone
 
 ```sh
 git clone https://github.com/livencheng/dsh-custom-logo.git
-dsh plugin --profile <profile> add ./dsh-custom-logo
+dsh plugin --profile web add ./dsh-custom-logo
 ```
 
 ### From a packed tarball
 
 ```sh
 pnpm pack                       # produces dsh-custom-brand-logo-0.4.0.tgz
-dsh plugin --profile <profile> add ./dsh-custom-brand-logo-0.4.0.tgz
+dsh plugin --profile web add ./dsh-custom-brand-logo-0.4.0.tgz
 ```
 
 The package ships plain JavaScript, so no `prepare`/build script (and therefore
@@ -66,7 +69,7 @@ no pnpm build-script allowance) is needed.
 In the Web UI you can also install a local folder through the Plugin Manager.
 
 > **Note:** installing changes the profile, not this checkout. Remove it with
-> `dsh plugin --profile <profile> remove dsh-custom-brand-logo`.
+> `dsh plugin --profile web remove dsh-custom-brand-logo`.
 
 ## Use
 

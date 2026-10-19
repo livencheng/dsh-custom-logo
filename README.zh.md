@@ -32,27 +32,30 @@
 ## 安装
 
 仓库名是 `dsh-custom-logo`，其中的 DSH bundle 包名是 `dsh-custom-brand-logo`。
-插件是标准 DSH bundle（`dsh.bundle.patch` + `dsh.client`），安装到某个 profile
-后按该 profile 的要求重启或刷新 Web UI。
+插件是标准 DSH bundle（`dsh.bundle.patch` + `dsh.client`），安装到 `web` profile
+后，按该 profile 的要求重启或刷新 Web UI。
+
+> 下面的命令都以 `web` profile 为例；如果安装到其他 profile，把 `web` 换成对应
+> 的 profile 名即可。
 
 ### 从 GitHub 安装（本仓库）
 
 ```sh
-dsh plugin --profile <profile> add github:livencheng/dsh-custom-logo
+dsh plugin --profile web add github:livencheng/dsh-custom-logo
 ```
 
 ### 从本地 clone 安装
 
 ```sh
 git clone https://github.com/livencheng/dsh-custom-logo.git
-dsh plugin --profile <profile> add ./dsh-custom-logo
+dsh plugin --profile web add ./dsh-custom-logo
 ```
 
 ### 从打包好的 tarball 安装
 
 ```sh
 pnpm pack                       # 生成 dsh-custom-brand-logo-0.4.0.tgz
-dsh plugin --profile <profile> add ./dsh-custom-brand-logo-0.4.0.tgz
+dsh plugin --profile web add ./dsh-custom-brand-logo-0.4.0.tgz
 ```
 
 包内是纯 JavaScript，因此不需要 `prepare`/构建脚本，也不需要放开 pnpm 的
@@ -61,7 +64,7 @@ build-script 权限。
 在 Web UI 中也可以通过插件管理页面从本地目录安装。
 
 > **提示：** 安装修改的是 profile，不是当前源码目录。卸载命令：
-> `dsh plugin --profile <profile> remove dsh-custom-brand-logo`。
+> `dsh plugin --profile web remove dsh-custom-brand-logo`。
 
 ## 使用
 
